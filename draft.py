@@ -2,6 +2,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 import requests
 import re
+import sqlite3
 
 link = 'https://monitoring.miccedu.ru/?m=vpo'
 prefix = 'https://monitoring.miccedu.ru/'
