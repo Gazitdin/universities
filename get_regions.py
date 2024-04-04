@@ -2,23 +2,23 @@
 """this module contains a function for getting a list of links to the pages of
 federal districts on the website of the GIVC."""
 
+import re
 import requests
 from bs4 import BeautifulSoup
-import re
 
 
 def get_regions ( link, prefix):
     """Function for getting links to pages with universities links
     on the target site.
     """
-    page = requests.get(link)
+    page = requests.get(link, timeout=10)
     soup = BeautifulSoup(page.text, 'lxml')
     table = soup.find("table", attrs={"id": "tregion"})
     row_list = table.find_all("a")
     region_list = []
 
     for item in row_list:
-        region_temp = {"link"       : prefix + item["href"],
+        region_temp = {"link": prefix + item["href"],
                        "region_name": item.text}
         region_list.append(region_temp)
 
