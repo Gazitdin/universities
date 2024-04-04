@@ -7,9 +7,12 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def get_regions ( link, prefix):
+def get_regions (link='https://monitoring.miccedu.ru/?m=vpo',
+                 prefix='https://monitoring.miccedu.ru/'):
     """Function for getting links to pages with universities links
-    on the target site.
+    on the target site. Link is a link to the monitoring web page for
+    a specific year. Prefix - the initial part of the link to the region's
+    web page.
     """
     page = requests.get(link, timeout=10)
     soup = BeautifulSoup(page.text, 'lxml')
