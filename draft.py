@@ -1,39 +1,24 @@
-import pandas as pd
-from bs4 import BeautifulSoup
-import requests
-import re
-import sqlite3
 
-link = 'https://monitoring.miccedu.ru/?m=vpo'
+import json
+from get_parameters import *
+from get_regions import *
+from get_universities import *
+
 prefix = 'https://monitoring.miccedu.ru/'
-
-# Get regions list
-page = requests.get(link)
-result = page.status_code
-soup = BeautifulSoup(page.text, 'lxml')
-table = soup.find("table", attrs={"id": "tregion"})
-row_list = table.find_all("a")
-region_list = []
-for item in row_list:
-    region_temp = {"link"       : prefix + item["href"],
-                   "region_name": item.text}
-    region_list.append(region_temp)
-
-# Get universities list
-region = region_list[0]
-link_temp = region["link"]
-page_temp = requests.get(link_temp)
-result_temp = page_temp.status_code
-soup_temp = BeautifulSoup(page_temp.text, "lxml")
-table_universities = soup_temp.find("table", attrs={"class": "an"})
-row_list_temp = table_universities.find_all("td", attrs={"class": "inst"})
-
-university_list = []
 prefix_university = "https://monitoring.miccedu.ru/iam/2023/_vpo/"
-for item in row_list_temp:
-    temp = item.find("a")
-    university_temp = {"id"  : item["id"],
-                       "link": prefix_university + temp["href"],
-                       "name": temp.text}
-    university_list.append(university_temp)
 
+root_links = {"year":2023,
+              "root_link":'https://monitoring.miccedu.ru/?m=vpo'}
+
+link = root_links["root_link"]
+
+region_list = get_regions(link)
+
+with open('region_list.json', 'w') as file:
+    json.dump(region_list, file)
+
+with open('region_list.json') as file:
+    file_content = file.read()
+    region_list = json.loads(file_content)
+
+print(region_list)
