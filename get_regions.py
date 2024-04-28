@@ -1,6 +1,9 @@
 #! /bin/python3
 """this module contains a function for getting a list of links to the pages of
-federal districts on the website of the GIVC."""
+federal districts on the website of the GIVC. The function input is provided
+with a link to the monitoring home page and the beginning of the link to the
+region
+"""
 
 import re
 import requests
