@@ -1,5 +1,8 @@
 # Universities
 
-## Purpose
+## Назначение  
 
-The purpose of this software is the automated collection of data on the results of monitoring the effectiveness of universities in Russia. Performance data is collected and published by the MICC.  
+Скрипт предназначен для автоматизированного сбора данных о результатах деятельности вузов в России.  
+Источник данных - результаты мониторинга эффективности деятельности образовательных организаций высшего образования.  
+Данные собираются и агрегируются ГИВЦ на основе отчетности, подаваемых вузами в рамках мониторинга.  
+Данные публикуются на сайте ([ГИВЦ](https://monitoring.miccedu.ru/?m=vpo)).  
