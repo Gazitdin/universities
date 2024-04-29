@@ -5,31 +5,31 @@ import json
 input_list_2023 = {"year": 2022,
                    "link": 'https://monitoring.miccedu.ru/?m=vpo',
                    "region_prefix": 'https://monitoring.miccedu.ru/',
-                   "university_prifix": 'https://monitoring.miccedu.ru/iam/2023/_vpo/'}
+                   "university_prefix": 'https://monitoring.miccedu.ru/iam/2023/_vpo/'}
 input_list_2022 = {"year": 2021,
                    "link": 'https://monitoring.miccedu.ru/?m=vpo&year=2022',
                    "region_prefix": 'https://monitoring.miccedu.ru/',
-                   "university_prifix": 'https://monitoring.miccedu.ru/iam/2022/_vpo/'}
+                   "university_prefix": 'https://monitoring.miccedu.ru/iam/2022/_vpo/'}
 input_list_2021 = {"year": 2020,
                    "link": 'https://monitoring.miccedu.ru/?m=vpo&year=2021',
                    "region_prefix": 'https://monitoring.miccedu.ru/',
-                   "university_prifix": 'https://monitoring.miccedu.ru/iam/2021/_vpo/'}
+                   "university_prefix": 'https://monitoring.miccedu.ru/iam/2021/_vpo/'}
 input_list_2020 = {"year": 2019,
                    "link": 'https://monitoring.miccedu.ru/?m=vpo&year=2020',
                    "region_prefix": 'https://monitoring.miccedu.ru/',
-                   "university_prifix": 'https://monitoring.miccedu.ru/iam/2020/_vpo/'}
+                   "university_prefix": 'https://monitoring.miccedu.ru/iam/2020/_vpo/'}
 input_list_2019 = {"year": 2018,
                    "link": 'https://monitoring.miccedu.ru/?m=vpo&year=2019',
                    "region_prefix": 'https://monitoring.miccedu.ru/',
-                   "university_prifix": 'https://monitoring.miccedu.ru/iam/2019/_vpo/'}
+                   "university_prefix": 'https://monitoring.miccedu.ru/iam/2019/_vpo/'}
 input_list_2018 = {"year": 2017,
                    "link": 'https://monitoring.miccedu.ru/?m=vpo&year=2018',
                    "region_prefix": 'https://monitoring.miccedu.ru/',
-                   "university_prifix": 'https://monitoring.miccedu.ru/iam/2018/_vpo/'}
+                   "university_prefix": 'https://monitoring.miccedu.ru/iam/2018/_vpo/'}
 input_list_2017 = {"year": 2016,
                    "link": 'https://monitoring.miccedu.ru/?m=vpo&year=2017',
                    "region_prefix": 'https://monitoring.miccedu.ru/',
-                   "university_prifix": 'https://monitoring.miccedu.ru/iam/2017/_vpo/'}
+                   "university_prefix": 'https://monitoring.miccedu.ru/iam/2017/_vpo/'}
 
 monitorings_list = []
 inputs_list = [input_list_2023, input_list_2022, input_list_2021,
