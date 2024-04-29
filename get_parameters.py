@@ -65,9 +65,9 @@ def get_parameters (link):
                 indicator_name = cells[0].text
                 uom = cells[1].text
                 indicator_value = cells[2].text
-                indicator_row = {"indicator_number": indicator_number,
-                                 "indicator_name": indicator_name,
-                                 "uom": uom,
-                                 "indicator_value": indicator_value}
+            indicator_row = {"indicator_number": indicator_number,
+                             "indicator_name": indicator_name,
+                             "uom": uom,
+                             "indicator_value": indicator_value}
             content.append(indicator_row)
     return content
