@@ -6,6 +6,7 @@ region
 """
 
 import re
+import time
 import requests
 from bs4 import BeautifulSoup
 
@@ -18,6 +19,10 @@ def get_regions (link='https://monitoring.miccedu.ru/?m=vpo',
     web page.
     """
     page = requests.get(link, timeout=10)
+    request_status = page.status_code
+    request_log = {"link": link,
+                   "time": time.localtime(),
+                   "request_status": request_status}
     soup = BeautifulSoup(page.text, 'lxml')
     table = soup.find("table", attrs={"id": "tregion"})
     row_list = table.find_all("a")
@@ -37,4 +42,6 @@ def get_regions (link='https://monitoring.miccedu.ru/?m=vpo',
         if region_string:
             region_list_to_db.append(item)
 
-    return region_list_to_db
+    result = {"request_log": request_log,
+              "regions_list": region_list_to_db}
+    return result

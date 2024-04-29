@@ -3,13 +3,19 @@
 univerisy from the pages of university on the website of the GIVC.
 """
 
+import time
 import requests
 from bs4 import BeautifulSoup
 
 
-def get_info(link):
-    """Function to collect base information about unoversity"""
+def get_parameters(link):
+    """Function to collect base information about unoversity and parameters of 
+    universities performance from GIVC"""
     page = requests.get(link, timeout=10)
+    request_status = page.status_code
+    request_log = {"link": link,
+                   "time": time.localtime(),
+                   "request_status": request_status}
     soup = BeautifulSoup(page.text, "lxml")
     info_table = soup.find("table", attrs={"id":"info"})
     region = info_table.find_all("a")[0].text
@@ -23,15 +29,7 @@ def get_info(link):
     university_info = {
        "region":region,
        "type":university_type,
-       "affiliation":affiliation
-       }
-    return university_info
-
-
-def get_parameters (link):
-    """Function to collect parameters of universities performance from GIVC"""
-    page = requests.get(link, timeout=10)
-    soup = BeautifulSoup(page.text, "lxml")
+       "affiliation":affiliation}
     indicator_tables = soup.find_all("table", attrs={"class":"napde"})
     content = []
     for item in indicator_tables:
@@ -70,4 +68,7 @@ def get_parameters (link):
                              "uom": uom,
                              "indicator_value": indicator_value}
             content.append(indicator_row)
-    return content
+    result = {"request_log": request_log,
+              "university_info": university_info,
+              "performance": content}
+    return result
