@@ -21,8 +21,9 @@ def get_universities(regions_list,
         link = item['link']
         page = requests.get(link, timeout=10)
         request_status = page.status_code
+        current_time = time.strftime("%d.%m.%Y %H:%M:%S")
         request_log = {"link": link,
-                       "time": time.localtime(),
+                       "time": current_time,
                        "request_status": request_status}
         request_logs_list.append(request_log)
         soup = BeautifulSoup(page.text, "lxml")
